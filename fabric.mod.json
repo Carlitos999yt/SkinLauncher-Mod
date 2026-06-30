@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "milauncherskins",
+  "version": "0.6.26a",
+
+  "name": "MiLauncherSkins",
+  "description": "Mod de red P2P para sincronizar skins automáticamente.",
+  "authors": [
+    "Carlitos999yt"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Carlitos999yt/SkinLauncher-Mod",
+    "sources": "https://github.com/Carlitos999yt/SkinLauncher-Mod",
+	"issues": "https://github.com/Carlitos999yt/SkinLauncher-Mod/issues"
+  },
+
+  "license": "MIT",
+  
+  "environment": "*",
+  "entrypoints": {
+  	"main": [
+  		"com.tom.cpm.CustomPlayerModels"
+  	],
+  	"client": [
+      "com.tom.cpm.client.CustomPlayerModelsClient"
+    ],
+	"modmenu": [
+      "com.tom.cpm.ModMenu"
+    ]
+  },
+  "mixins": [
+  	"cpm.mixins.json",
+  	"cpm.mixins.shared.json",
+  	"cpm.mixins.compat.json"
+  ],
+  "accessWidener" : "cpm.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric-api": "*",
+    "minecraft": ">=1.21.7"
+  }
+}
