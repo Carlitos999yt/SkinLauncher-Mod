@@ -2,7 +2,16 @@
 
 ![Skins](https://img.shields.io/badge/Minecraft-Skins-blue) ![Versions](https://img.shields.io/badge/Versions-1.12.2%20|%201.16.5%20|%201.20.1%20|%201.21.1-green)
 
-Este es el repositorio oficial de almacenamiento de **MiLauncher Skins**. Estos mods se encargan de sincronizar las skins personalizadas de todos los jugadores de forma directa (Peer-to-Peer) a través de los paquetes de red del servidor de Minecraft, eliminando por completo la necesidad de un servidor web externo o una base de datos centralizada.
+Este es el repositorio oficial de almacenamiento de **MiLauncher Skins**.
+
+Este mod permite cambiar y personalizar tu skin de Minecraft. 
+Está diseñado para funcionar en segundo plano de manera completamente transparente.
+
+**Novedades en esta versión:**
+- Interfaz gráfica oculta para mayor inmersión.
+- Búsqueda de actualizaciones automáticas desactivada por completo.
+
+Estos mods se encargan de sincronizar las skins personalizadas de todos los jugadores de forma directa (Peer-to-Peer) a través de los paquetes de red del servidor de Minecraft, eliminando por completo la necesidad de un servidor web externo o una base de datos centralizada.
 
 ## 🚀 ¿Cómo funciona?
 
