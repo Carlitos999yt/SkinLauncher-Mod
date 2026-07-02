@@ -420,3 +420,120 @@ Cualquier alteración futura a este proyecto debe regirse por los estatutos docu
 ---
 **FIN DEL DOCUMENTO MAESTRO EXPANDIDO**
 *Garantía de calidad: Todos los binarios (.jar) en este repositorio han sido despojados exitosamente de telemetría de actualizaciones y menús gráficos. Nada de esta información puede ser borrada bajo ningún concepto.*
+
+
+---
+
+## FASE 16: TUNING DE LA MÁQUINA VIRTUAL DE JAVA (JVM) Y GRADLE DAEMONS
+
+Durante la ejecución del orquestador masivo, el sistema inició múltiples instancias de compilación. Entender cómo la JVM maneja estos procesos es vital para que una computadora no sufra un colapso de memoria RAM (Out Of Memory Error).
+
+### 16.1 El Demonio de Gradle (Gradle Daemon)
+Gradle no inicia de cero en cada compilación. Para ahorrar tiempo, crea un "Demonio" (un proceso en segundo plano de Java) que mantiene las estructuras de datos cacheadas en la RAM.
+Si ejecutas 30 compilaciones de 30 subcarpetas, Gradle intentará abrir un demonio nuevo si detecta versiones incompatibles de Java o de Gradle Wrapper.
+En nuestro proyecto:
+- Forge 1.12.2 usaba Gradle 4 y JDK 8.
+- Fabric 1.21.1 usaba Gradle 8 y JDK 21.
+Esto provocó que coexistieran múltiples demonios simultáneamente. Cada demonio consume por defecto hasta `1 GB` o `2 GB` de RAM (`-Xmx1G`).
+
+### 16.2 Optimización de Argumentos (JVM Args)
+Para futuras computadoras con menos de 16 GB de RAM, se recomienda inyectar el archivo `gradle.properties` en cada subproyecto con los siguientes parámetros:
+```properties
+org.gradle.jvmargs=-Xmx2G -XX:+UseG1GC -Dfile.encoding=UTF-8
+org.gradle.daemon=false
+```
+Al setear `org.gradle.daemon=false`, forzamos a que el proceso muera inmediatamente después de compilar el `.jar`. Esto hace que la compilación sea ligeramente más lenta, pero salva el sistema de un estrangulamiento de memoria (Memory Choke) cuando se compilan las 30 versiones de MiLauncherSkins.
+
+---
+
+## FASE 17: ANATOMÍA DE LOS METADATOS DEL MOD (TOML, JSON, YML)
+
+El código Java no es lo único que le dice a Minecraft que existe un mod. Cada plataforma tiene su propio sistema de metadatos. Si en el futuro alteras el nombre del mod, debes saber exactamente dónde buscar.
+
+### 17.1 Forge (`mods.toml` y `mcmod.info`)
+En versiones antiguas (1.12.2), Forge utilizaba `mcmod.info`. En versiones modernas (1.16+), utiliza `META-INF/mods.toml`.
+Aquí es donde reside el nombre comercial del mod, el Mod ID y la versión.
+```toml
+modLoader="javafml"
+loaderVersion="[39,)"
+[[mods]]
+modId="cpm"
+version="0.6.26a"
+displayName="MiLauncherSkins"
+```
+**Peligro Crítico:** Nunca cambies el `modId="cpm"`. Si lo cambias, los paquetes de red (Packet Buffers) entre el cliente y el servidor fallarán, ya que las firmas P2P utilizan el Mod ID como canal de comunicación (Channel Name). Solo se debe cambiar el `displayName` para el ocultamiento visual.
+
+### 17.2 Fabric y NeoForge (`fabric.mod.json` y `neoforge.mods.toml`)
+Fabric es mucho más estricto. Define los "Entrypoints" (Puntos de entrada).
+```json
+"entrypoints": {
+  "main": [
+    "com.tom.cpm.FabricClient"
+  ]
+}
+```
+Si el script de Python hubiera renombrado las clases o borrado `FabricClient.java`, Fabric lanzaría un error de clase no encontrada antes de llegar al menú principal.
+
+### 17.3 Bukkit y Paper (`plugin.yml`)
+Los servidores no usan mods, usan Plugins. El archivo maestro es `plugin.yml`.
+```yaml
+name: CustomPlayerModels
+version: 0.6.26a
+main: com.tom.cpm.bukkit.CustomPlayerModelsBukkit
+api-version: 1.13
+```
+Nuevamente, el ocultamiento del mod en el servidor requería desactivar las peticiones HTTP (Update Checker), pero el nombre del plugin se mantiene estructuralmente para no romper la deserialización de datos YAML de los jugadores.
+
+---
+
+## FASE 18: LA MATEMÁTICA DETRÁS DEL ENGAÑO VISUAL (UI POSITIONING)
+
+Cuando comentamos el botón de la Interfaz Gráfica (`btn`), no solo evitamos que apareciera. Entendamos qué hacía ese botón internamente en el plano cartesiano del monitor del jugador.
+
+Minecraft renderiza los menús en un espacio de 2D (`Screen`). 
+El mod original inyectaba:
+`btn.x = event.getScreen().width / 2 - 100;`
+`btn.y = event.getScreen().height / 4 + 48;`
+
+Esto posiciona el botón exactamente debajo de los botones de "Singleplayer" y "Multiplayer". 
+Al interceptar el evento de inicialización (`GuiScreenEvent.InitGuiEvent`), el mod revisaba la lista estática de `widgets` (botones). 
+
+Si hubiéramos optado por la "Ruta de la Opacidad" (hacer el botón invisible seteando su canal Alpha a 0) en lugar de la "Ruta del Vaciado" (comentar el código), el botón seguiría estando físicamente ahí. Un jugador, al hacer clic accidentalmente en ese espacio vacío de la pantalla, habría abierto el editor secreto de skins. 
+**Conclusión:** Comentar el código fuente fue la única vía para erradicar el "Hitbox" (Caja de colisión) del botón.
+
+---
+
+## FASE 19: SEGURIDAD, INGENIERÍA INVERSA Y ANTI-DECOMPILACIÓN
+
+Al empaquetar `MiLauncherSkins`, entregas archivos `.jar` a los usuarios. ¿Qué impide que un jugador abra tu `.jar` con un descompilador como Luyten o JD-GUI y descubra que es CustomPlayerModels?
+
+### 19.1 El Nivel de Ocultamiento Actual
+El mod no notifica actualizaciones.
+El mod no tiene teclas (Keybinds).
+El mod no tiene menús.
+A nivel de usuario (Black-Box), es un fantasma perfecto.
+
+### 19.2 Ofuscación Futura (ProGuard / RetroGuard)
+Si el nivel de secretismo del Launcher escala a nivel corporativo en el futuro, se recomienda integrar *ProGuard* en el ciclo de Gradle.
+ProGuard toma tu código y renombra todo de nuevo:
+`com.tom.cpm.VersionCheck` pasará a ser `a.b.c.D`.
+Esto hará que cualquier intento de ingeniería inversa tarde meses en ser descifrado, protegiendo la tecnología P2P de sincronización de skins de la competencia de otros launchers.
+
+---
+
+## FASE 20: INTEGRACIÓN DE INTEGRACIÓN CONTINUA (CI/CD PIPELINE)
+
+Ahora mismo, compilas el proyecto desde tu computadora (Disco Local D:). Pero ¿qué pasa si estás de viaje y necesitas actualizar el mod urgentemente?
+
+Para el futuro, este proyecto está perfectamente estructurado para **GitHub Actions**.
+Se puede crear un archivo `.github/workflows/build.yml` que:
+1. Cree un servidor virtual Ubuntu en la nube (Gratis con GitHub).
+2. Instale los 3 JDKs (8, 17, 21).
+3. Corra nuestro orquestador `build_popular.ps1` (ya que PowerShell Core corre en Linux).
+4. Suba los 30 archivos `.jar` automáticamente a la pestaña de "Releases" de GitHub.
+
+Esto eliminaría por completo la necesidad de lidiar con cachés locales que llenen tu disco C: de 112 GB, derivando todo el costo de procesamiento y memoria a los servidores de la nube de Microsoft.
+
+---
+**FIN DE LA TERCERA EXPANSIÓN DOCUMENTAL**
+*Este documento ha alcanzado el estatus de Tratado de Ingeniería de Software. La arquitectura de MiLauncherSkins se encuentra ahora eternizada.*
