@@ -24,37 +24,31 @@ Estos mods se encargan de sincronizar las skins personalizadas de todos los juga
 El launcher utiliza los siguientes enlaces Raw (CDN) para descargar los mods en tiempo real. 
 *(No es necesario que los descargues manualmente si usas MiLauncher)*:
 
-- [1.12.2 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.12.2-Forge.jar)
-- [1.16.5 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.16.5-Fabric.jar)
-- [1.16.5 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.16.5-Forge.jar)
-- [1.18.2 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.18.2-Fabric.jar)
-- [1.18.2 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.18.2-Forge.jar)
-- [1.19.2 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.2-Fabric.jar)
-- [1.19.2 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.2-Forge.jar)
-- [1.19.3 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.3-Fabric.jar)
-- [1.19.3 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.3-Forge.jar)
-- [1.19.4 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.4-Fabric.jar)
-- [1.19.4 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.4-Forge.jar)
-- [1.20.1 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.1-Fabric.jar)
-- [1.20.1 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.1-Forge.jar)
-- [1.20.2 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.2-Fabric.jar)
-- [1.20.4 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.4-Fabric.jar)
-- [1.20.4 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.4-Forge.jar)
-- [1.20.6 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.6-Fabric.jar)
-- [1.20.6 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.6-Forge.jar)
-- [1.20.6 NeoForge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.6-NeoForge.jar)
-- [1.21.1 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.1-Fabric.jar)
-- [1.21.1 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.1-Forge.jar)
-- [1.21.1 NeoForge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.1-NeoForge.jar)
-- [1.21.3 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.3-Fabric.jar)
-- [1.21.3 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.3-Forge.jar)
-- [1.21.3 NeoForge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.3-NeoForge.jar)
-- [1.21.4 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.4-Fabric.jar)
-- [1.21.4 Forge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.4-Forge.jar)
-- [1.21.4 NeoForge](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.4-NeoForge.jar)
-- [26.1.2 Fabric](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-26.1.2-Fabric.jar)
-- [Bukkit](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-Bukkit.jar)
-- [Paper](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-Paper.jar)
+### 📦 Cliente (Mods)
+
+| Versión | Forge | Fabric | NeoForge |
+|:---:|:---:|:---:|:---:|
+| **26.1.2** | - | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-26.1.2-Fabric.jar) | - |
+| **1.21.4** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.4-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.4-Fabric.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.4-NeoForge.jar) |
+| **1.21.3** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.3-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.3-Fabric.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.3-NeoForge.jar) |
+| **1.21.1** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.1-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.1-Fabric.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.21.1-NeoForge.jar) |
+| **1.20.6** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.6-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.6-Fabric.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.6-NeoForge.jar) |
+| **1.20.4** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.4-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.4-Fabric.jar) | - |
+| **1.20.2** | - | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.2-Fabric.jar) | - |
+| **1.20.1** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.1-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.20.1-Fabric.jar) | - |
+| **1.19.4** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.4-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.4-Fabric.jar) | - |
+| **1.19.3** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.3-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.3-Fabric.jar) | - |
+| **1.19.2** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.2-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.19.2-Fabric.jar) | - |
+| **1.18.2** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.18.2-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.18.2-Fabric.jar) | - |
+| **1.16.5** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.16.5-Forge.jar) | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.16.5-Fabric.jar) | - |
+| **1.12.2** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-1.12.2-Forge.jar) | - | - |
+
+### 🖥️ Servidor (Plugins)
+
+| Plataforma | Descarga |
+|:---:|:---:|
+| **Bukkit** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-Bukkit.jar) |
+| **Paper** | [Descargar](https://raw.githubusercontent.com/Carlitos999yt/SkinLauncher-Mod/main/MiLauncherSkins-Paper.jar) |
 
 ## 🏆 Créditos
 Este sistema de red ultra-eficiente está construido sobre el legendario motor de transferencia de red de **[Customizable Player Models (CPM)](https://github.com/tom5454/CustomPlayerModels)** creado por tom5454. Todos los créditos de la ingeniería de red y los payloads P2P van hacia su trabajo original.
